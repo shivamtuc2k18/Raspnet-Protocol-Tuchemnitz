@@ -1,0 +1,41 @@
+\hypertarget{_u_a_r_t___init_8h}{}\section{Source/\+U\+A\+R\+T\+\_\+\+Init.h File Reference}
+\label{_u_a_r_t___init_8h}\index{Source/UART\_Init.h@{Source/UART\_Init.h}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_u_a_r_t___init_8h_a0c0ca72359ddf28dcd15900dfba19343}{uart\+\_\+init}} (void)
+\item 
+char \mbox{\hyperlink{_u_a_r_t___init_8h_a00dbbc6e035bfd12196ec47a99f8e1fe}{uart\+\_\+getchar}} (void)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___init_8h_a75a62dc336c40ff85cd0e7e0e97a5721}{uart\+\_\+put\+String}} (char $\ast$string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_u_a_r_t___init_8h_a00dbbc6e035bfd12196ec47a99f8e1fe}\label{_u_a_r_t___init_8h_a00dbbc6e035bfd12196ec47a99f8e1fe}} 
+\index{UART\_Init.h@{UART\_Init.h}!uart\_getchar@{uart\_getchar}}
+\index{uart\_getchar@{uart\_getchar}!UART\_Init.h@{UART\_Init.h}}
+\subsubsection{\texorpdfstring{uart\_getchar()}{uart\_getchar()}}
+{\footnotesize\ttfamily char uart\+\_\+getchar (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+function call to get the character from the M\+I\+N\+I\+C\+OM
+
+function to get the character to M\+I\+N\+I\+C\+OM Wait until data exists. \mbox{\Hypertarget{_u_a_r_t___init_8h_a0c0ca72359ddf28dcd15900dfba19343}\label{_u_a_r_t___init_8h_a0c0ca72359ddf28dcd15900dfba19343}} 
+\index{UART\_Init.h@{UART\_Init.h}!uart\_init@{uart\_init}}
+\index{uart\_init@{uart\_init}!UART\_Init.h@{UART\_Init.h}}
+\subsubsection{\texorpdfstring{uart\_init()}{uart\_init()}}
+{\footnotesize\ttfamily void uart\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+function call to initialize all the U\+A\+RT configuration
+
+U\+A\+RT Configuration, Source from Apple\+Sini website mentioned in the Portal 8-\/bit data
+
+Enable RX and TX \mbox{\Hypertarget{_u_a_r_t___init_8h_a75a62dc336c40ff85cd0e7e0e97a5721}\label{_u_a_r_t___init_8h_a75a62dc336c40ff85cd0e7e0e97a5721}} 
+\index{UART\_Init.h@{UART\_Init.h}!uart\_putString@{uart\_putString}}
+\index{uart\_putString@{uart\_putString}!UART\_Init.h@{UART\_Init.h}}
+\subsubsection{\texorpdfstring{uart\_putString()}{uart\_putString()}}
+{\footnotesize\ttfamily void uart\+\_\+put\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{string }\end{DoxyParamCaption})}
+
+function call to get the Array of all the character
+
+custom function to get the character from user and put it in a Char Array named as string 

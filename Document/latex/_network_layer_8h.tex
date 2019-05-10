@@ -1,0 +1,37 @@
+\hypertarget{_network_layer_8h}{}\section{Source/\+Network\+Layer/\+Network\+Layer.h File Reference}
+\label{_network_layer_8h}\index{Source/NetworkLayer/NetworkLayer.h@{Source/NetworkLayer/NetworkLayer.h}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_network_layer_8h_a91c56ce7f74fb7d7b6804eb8bc032389}{validation\+Process}} (uint8\+\_\+t $\ast$recieved\+Buff)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_network_layer_8h_a91c56ce7f74fb7d7b6804eb8bc032389}\label{_network_layer_8h_a91c56ce7f74fb7d7b6804eb8bc032389}} 
+\index{NetworkLayer.h@{NetworkLayer.h}!validationProcess@{validationProcess}}
+\index{validationProcess@{validationProcess}!NetworkLayer.h@{NetworkLayer.h}}
+\subsubsection{\texorpdfstring{validationProcess()}{validationProcess()}}
+{\footnotesize\ttfamily int validation\+Process (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{recieved\+Buff }\end{DoxyParamCaption})}
+
+function to do all the validation part
+
+if the recieved buff destination address is \textquotesingle{}0\textquotesingle{}, then will Broadcast the Message and there is a check to see if message came back to source then will Complete the Broadcast.\+if the recieved buff destination address is not equal to source address, then forward the same. Check to see if Destination address is same as my address, then perform the C\+RC Check
+
+adding source and destination address in the payload for C\+RC calculation
+
+storing the recieved C\+RC value in a variable
+
+storing the current C\+RC value in temprory variable.
+
+check to see if recieved packet C\+RC bytes are same as the C\+RC which we calculated in the code.
+
+printing the data value which we recieved in the message.
+
+check to see if the message is to be broadcasted.
+
+if it matches my address then it means broadcast is completed.
+
+else will forward the message if it contain 0 in destionation field and forward the same.
+
+check to see if recieved message address doesn\textquotesingle{}t match my address then forward the message. 

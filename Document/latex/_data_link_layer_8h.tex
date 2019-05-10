@@ -1,0 +1,69 @@
+\hypertarget{_data_link_layer_8h}{}\section{Source/\+Data\+Link\+Layer/\+Data\+Link\+Layer.h File Reference}
+\label{_data_link_layer_8h}\index{Source/DataLinkLayer/DataLinkLayer.h@{Source/DataLinkLayer/DataLinkLayer.h}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_data_link_layer_8h_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
+\item 
+void \mbox{\hyperlink{_data_link_layer_8h_a35166c0b91d80905afa5ac942c0e1733}{Send\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{_data_link_layer_8h_ad874274d59eee544f403ee82c4fe69a9}{Recieve\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{_data_link_layer_8h_ae58f973227bed2ce6a22eb4a13f76c32}{user\+Input}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_data_link_layer_8h_a02fd73d861ef2e4aabb38c0c9ff82947}\label{_data_link_layer_8h_a02fd73d861ef2e4aabb38c0c9ff82947}} 
+\index{DataLinkLayer.h@{DataLinkLayer.h}!init@{init}}
+\index{init@{init}!DataLinkLayer.h@{DataLinkLayer.h}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to intialize the send and recieve buffer
+
+calling the frame\+Initialize function to get the send Buffer and initializng the recieve buffer and to get the source address \mbox{\Hypertarget{_data_link_layer_8h_ad874274d59eee544f403ee82c4fe69a9}\label{_data_link_layer_8h_ad874274d59eee544f403ee82c4fe69a9}} 
+\index{DataLinkLayer.h@{DataLinkLayer.h}!RecieveBuffer@{RecieveBuffer}}
+\index{RecieveBuffer@{RecieveBuffer}!DataLinkLayer.h@{DataLinkLayer.h}}
+\subsubsection{\texorpdfstring{RecieveBuffer()}{RecieveBuffer()}}
+{\footnotesize\ttfamily void Recieve\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Recieve buffer function to read data bit by bit
+
+if validation Value is 3 i.\+e. destination address doesn\textquotesingle{}t match source address then will forward the packet. While doing this will implement two checks i.\+e. it should check if send buffer is free while forwarding and Incase if it is not free it will wait for it until send buffer get freed .when all the bytes are recieved will perform the data validation by calling the validation\+Process function. Check to see if all bytes of packet is recieved.
+
+Check to verify all the bits of particular bytes are recieved.
+
+Keep checking bits until the preamble matches.
+
+Reallocate the recieve buffer once it recieves the size of the data field
+
+if all the bytes of data is recived will do validation process
+
+if message is to be broadcasted or forwarded then will check if send lock is free.
+
+if send lock is not free then will put it in the temporary buffer and once send lock is free will copy from temp buffer to Send buffer. \mbox{\Hypertarget{_data_link_layer_8h_a35166c0b91d80905afa5ac942c0e1733}\label{_data_link_layer_8h_a35166c0b91d80905afa5ac942c0e1733}} 
+\index{DataLinkLayer.h@{DataLinkLayer.h}!SendBuffer@{SendBuffer}}
+\index{SendBuffer@{SendBuffer}!DataLinkLayer.h@{DataLinkLayer.h}}
+\subsubsection{\texorpdfstring{SendBuffer()}{SendBuffer()}}
+{\footnotesize\ttfamily void Send\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Send buffer function to read bit by bit data
+
+if total number of bytes doesn\textquotesingle{}t match the current Byte Index then it will increment byte counter and reinitalize the send counter flag. Check if the sendlock is set.
+
+Check to see if all the bits of a particular Byte is sent.
+
+if all the bytes are not send then it will reset the bit counter and make increment in byte counter
+
+if all the bytes are recieved then it will set the lock as 1.
+
+chechikng if data is there in the tempbuffer \mbox{\Hypertarget{_data_link_layer_8h_ae58f973227bed2ce6a22eb4a13f76c32}\label{_data_link_layer_8h_ae58f973227bed2ce6a22eb4a13f76c32}} 
+\index{DataLinkLayer.h@{DataLinkLayer.h}!userInput@{userInput}}
+\index{userInput@{userInput}!DataLinkLayer.h@{DataLinkLayer.h}}
+\subsubsection{\texorpdfstring{userInput()}{userInput()}}
+{\footnotesize\ttfamily void user\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function to form a string which can be displayed in the M\+I\+N\+I\+C\+OM.
+
+fucntion to display the Entire string in minicom console to ask for Input 

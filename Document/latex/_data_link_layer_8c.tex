@@ -1,0 +1,210 @@
+\hypertarget{_data_link_layer_8c}{}\section{Source/\+Data\+Link\+Layer/\+Data\+Link\+Layer.c File Reference}
+\label{_data_link_layer_8c}\index{Source/DataLinkLayer/DataLinkLayer.c@{Source/DataLinkLayer/DataLinkLayer.c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}U\+A\+R\+T\+\_\+\+Init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+R\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Pin\+Conf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Physical\+Layer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Network\+Layer.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_data_link_layer_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+PU}}~12000000\+UL
+\item 
+\#define \mbox{\hyperlink{_data_link_layer_8c_ada5117fc4f5cae9ee7091b2fd013ad02}{Delay}}~500
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_data_link_layer_8c_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
+\item 
+void \mbox{\hyperlink{_data_link_layer_8c_a35166c0b91d80905afa5ac942c0e1733}{Send\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{_data_link_layer_8c_ad874274d59eee544f403ee82c4fe69a9}{Recieve\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{_data_link_layer_8c_ae58f973227bed2ce6a22eb4a13f76c32}{user\+Input}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{_data_link_layer_8c_a9ce7a49a67b42236275060d15ba1336f}{send\+Buffer}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{_data_link_layer_8c_a5a3be60a8d16adfac317d2cbadd31fc3}{recieve\+Buffer}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{_data_link_layer_8c_a69bb6759700e3b80f249cd54836a40bd}{temp\+Buffer}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_data_link_layer_8c_a8a645ccac6739903ec0a78f1c65bfd16}{src\+Address}}
+\item 
+volatile int \mbox{\hyperlink{_data_link_layer_8c_a22f26e5606610c4339831e74b0e3a5b6}{preamble\+Counter}} = 0
+\item 
+volatile int \mbox{\hyperlink{_data_link_layer_8c_a6481a2ba4edce849856d2032d38e5028}{read\+\_\+counter}} = 0
+\item 
+volatile int \mbox{\hyperlink{_data_link_layer_8c_a0a889dc60341bf268dc21ecab55987fe}{send\+\_\+counter}} = 0
+\item 
+volatile int \mbox{\hyperlink{_data_link_layer_8c_a011b50836c5d1b55ad28536abfca36f6}{Total\+Byte}} = 0
+\item 
+volatile int \mbox{\hyperlink{_data_link_layer_8c_a0f795304a4a1c91aa533be941fd36968}{byte\+Counter}} = 0
+\item 
+volatile int \mbox{\hyperlink{_data_link_layer_8c_a9f672723ebafebd0dc0c4a28e8a839e4}{send\+Lock}} = 0
+\item 
+volatile int \mbox{\hyperlink{_data_link_layer_8c_ae5099f7e88d723d706e4b1171aedcabc}{recieved\+Total\+Byte}} = 6
+\item 
+volatile int \mbox{\hyperlink{_data_link_layer_8c_aa3e1e98f154cb0841b7daac8238b6ac8}{recieved\+Byte\+Counter}} = 0
+\item 
+volatile int \mbox{\hyperlink{_data_link_layer_8c_a45ae1a89e8cf56627c8c67f8c8de31b4}{flag\+To\+Forward}} = 0
+\item 
+int \mbox{\hyperlink{_data_link_layer_8c_a37d972ae0b47b9099e30983131d31916}{j}} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_data_link_layer_8c_ada5117fc4f5cae9ee7091b2fd013ad02}\label{_data_link_layer_8c_ada5117fc4f5cae9ee7091b2fd013ad02}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!Delay@{Delay}}
+\index{Delay@{Delay}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{Delay}{Delay}}
+{\footnotesize\ttfamily \#define Delay~500}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a43bafb28b29491ec7f871319b5a3b2f8}\label{_data_link_layer_8c_a43bafb28b29491ec7f871319b5a3b2f8}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \#define F\+\_\+\+C\+PU~12000000\+UL}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_data_link_layer_8c_a02fd73d861ef2e4aabb38c0c9ff82947}\label{_data_link_layer_8c_a02fd73d861ef2e4aabb38c0c9ff82947}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!init@{init}}
+\index{init@{init}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+calling the frame\+Initialize function to get the send Buffer and initializng the recieve buffer and to get the source address \mbox{\Hypertarget{_data_link_layer_8c_ad874274d59eee544f403ee82c4fe69a9}\label{_data_link_layer_8c_ad874274d59eee544f403ee82c4fe69a9}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!RecieveBuffer@{RecieveBuffer}}
+\index{RecieveBuffer@{RecieveBuffer}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{RecieveBuffer()}{RecieveBuffer()}}
+{\footnotesize\ttfamily void Recieve\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+if validation Value is 3 i.\+e. destination address doesn\textquotesingle{}t match source address then will forward the packet. While doing this will implement two checks i.\+e. it should check if send buffer is free while forwarding and Incase if it is not free it will wait for it until send buffer get freed .when all the bytes are recieved will perform the data validation by calling the validation\+Process function. Check to see if all bytes of packet is recieved.
+
+Check to verify all the bits of particular bytes are recieved.
+
+Keep checking bits until the preamble matches.
+
+Reallocate the recieve buffer once it recieves the size of the data field
+
+if all the bytes of data is recived will do validation process
+
+if message is to be broadcasted or forwarded then will check if send lock is free.
+
+if send lock is not free then will put it in the temporary buffer and once send lock is free will copy from temp buffer to Send buffer. \mbox{\Hypertarget{_data_link_layer_8c_a35166c0b91d80905afa5ac942c0e1733}\label{_data_link_layer_8c_a35166c0b91d80905afa5ac942c0e1733}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!SendBuffer@{SendBuffer}}
+\index{SendBuffer@{SendBuffer}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{SendBuffer()}{SendBuffer()}}
+{\footnotesize\ttfamily void Send\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+if total number of bytes doesn\textquotesingle{}t match the current Byte Index then it will increment byte counter and reinitalize the send counter flag. Check if the sendlock is set.
+
+Check to see if all the bits of a particular Byte is sent.
+
+if all the bytes are not send then it will reset the bit counter and make increment in byte counter
+
+if all the bytes are recieved then it will set the lock as 1.
+
+chechikng if data is there in the tempbuffer \mbox{\Hypertarget{_data_link_layer_8c_ae58f973227bed2ce6a22eb4a13f76c32}\label{_data_link_layer_8c_ae58f973227bed2ce6a22eb4a13f76c32}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!userInput@{userInput}}
+\index{userInput@{userInput}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{userInput()}{userInput()}}
+{\footnotesize\ttfamily void user\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+fucntion to display the Entire string in minicom console to ask for Input 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_data_link_layer_8c_a0f795304a4a1c91aa533be941fd36968}\label{_data_link_layer_8c_a0f795304a4a1c91aa533be941fd36968}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!byteCounter@{byteCounter}}
+\index{byteCounter@{byteCounter}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{byteCounter}{byteCounter}}
+{\footnotesize\ttfamily volatile int byte\+Counter = 0}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a45ae1a89e8cf56627c8c67f8c8de31b4}\label{_data_link_layer_8c_a45ae1a89e8cf56627c8c67f8c8de31b4}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!flagToForward@{flagToForward}}
+\index{flagToForward@{flagToForward}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{flagToForward}{flagToForward}}
+{\footnotesize\ttfamily volatile int flag\+To\+Forward = 0}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a37d972ae0b47b9099e30983131d31916}\label{_data_link_layer_8c_a37d972ae0b47b9099e30983131d31916}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!j@{j}}
+\index{j@{j}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{j}{j}}
+{\footnotesize\ttfamily int j = 0}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a22f26e5606610c4339831e74b0e3a5b6}\label{_data_link_layer_8c_a22f26e5606610c4339831e74b0e3a5b6}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!preambleCounter@{preambleCounter}}
+\index{preambleCounter@{preambleCounter}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{preambleCounter}{preambleCounter}}
+{\footnotesize\ttfamily volatile int preamble\+Counter = 0}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a6481a2ba4edce849856d2032d38e5028}\label{_data_link_layer_8c_a6481a2ba4edce849856d2032d38e5028}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!read\_counter@{read\_counter}}
+\index{read\_counter@{read\_counter}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{read\_counter}{read\_counter}}
+{\footnotesize\ttfamily volatile int read\+\_\+counter = 0}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a5a3be60a8d16adfac317d2cbadd31fc3}\label{_data_link_layer_8c_a5a3be60a8d16adfac317d2cbadd31fc3}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!recieveBuffer@{recieveBuffer}}
+\index{recieveBuffer@{recieveBuffer}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{recieveBuffer}{recieveBuffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ recieve\+Buffer}
+
+\mbox{\Hypertarget{_data_link_layer_8c_aa3e1e98f154cb0841b7daac8238b6ac8}\label{_data_link_layer_8c_aa3e1e98f154cb0841b7daac8238b6ac8}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!recievedByteCounter@{recievedByteCounter}}
+\index{recievedByteCounter@{recievedByteCounter}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{recievedByteCounter}{recievedByteCounter}}
+{\footnotesize\ttfamily volatile int recieved\+Byte\+Counter = 0}
+
+\mbox{\Hypertarget{_data_link_layer_8c_ae5099f7e88d723d706e4b1171aedcabc}\label{_data_link_layer_8c_ae5099f7e88d723d706e4b1171aedcabc}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!recievedTotalByte@{recievedTotalByte}}
+\index{recievedTotalByte@{recievedTotalByte}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{recievedTotalByte}{recievedTotalByte}}
+{\footnotesize\ttfamily volatile int recieved\+Total\+Byte = 6}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a0a889dc60341bf268dc21ecab55987fe}\label{_data_link_layer_8c_a0a889dc60341bf268dc21ecab55987fe}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!send\_counter@{send\_counter}}
+\index{send\_counter@{send\_counter}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{send\_counter}{send\_counter}}
+{\footnotesize\ttfamily volatile int send\+\_\+counter = 0}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a9ce7a49a67b42236275060d15ba1336f}\label{_data_link_layer_8c_a9ce7a49a67b42236275060d15ba1336f}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!sendBuffer@{sendBuffer}}
+\index{sendBuffer@{sendBuffer}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{sendBuffer}{sendBuffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ send\+Buffer}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a9f672723ebafebd0dc0c4a28e8a839e4}\label{_data_link_layer_8c_a9f672723ebafebd0dc0c4a28e8a839e4}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!sendLock@{sendLock}}
+\index{sendLock@{sendLock}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{sendLock}{sendLock}}
+{\footnotesize\ttfamily volatile int send\+Lock = 0}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a8a645ccac6739903ec0a78f1c65bfd16}\label{_data_link_layer_8c_a8a645ccac6739903ec0a78f1c65bfd16}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!srcAddress@{srcAddress}}
+\index{srcAddress@{srcAddress}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{srcAddress}{srcAddress}}
+{\footnotesize\ttfamily uint8\+\_\+t src\+Address}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a69bb6759700e3b80f249cd54836a40bd}\label{_data_link_layer_8c_a69bb6759700e3b80f249cd54836a40bd}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!tempBuffer@{tempBuffer}}
+\index{tempBuffer@{tempBuffer}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{tempBuffer}{tempBuffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ temp\+Buffer}
+
+\mbox{\Hypertarget{_data_link_layer_8c_a011b50836c5d1b55ad28536abfca36f6}\label{_data_link_layer_8c_a011b50836c5d1b55ad28536abfca36f6}} 
+\index{DataLinkLayer.c@{DataLinkLayer.c}!TotalByte@{TotalByte}}
+\index{TotalByte@{TotalByte}!DataLinkLayer.c@{DataLinkLayer.c}}
+\subsubsection{\texorpdfstring{TotalByte}{TotalByte}}
+{\footnotesize\ttfamily volatile int Total\+Byte = 0}
+

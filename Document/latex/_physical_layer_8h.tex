@@ -1,0 +1,37 @@
+\hypertarget{_physical_layer_8h}{}\section{Source/\+Physical\+Layer/\+Physical\+Layer.h File Reference}
+\label{_physical_layer_8h}\index{Source/PhysicalLayer/PhysicalLayer.h@{Source/PhysicalLayer/PhysicalLayer.h}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_physical_layer_8h_aa82cdc35661d894548be20de3b009222}{frame\+Initialize}} ()
+\item 
+void \mbox{\hyperlink{_physical_layer_8h_a2f9187d9808dacc6f72362c102844c67}{my\+Address}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_physical_layer_8h_aa82cdc35661d894548be20de3b009222}\label{_physical_layer_8h_aa82cdc35661d894548be20de3b009222}} 
+\index{PhysicalLayer.h@{PhysicalLayer.h}!frameInitialize@{frameInitialize}}
+\index{frameInitialize@{frameInitialize}!PhysicalLayer.h@{PhysicalLayer.h}}
+\subsubsection{\texorpdfstring{frameInitialize()}{frameInitialize()}}
+{\footnotesize\ttfamily void frame\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialize the Send Buffer
+
+Assigning Send buffer according to the specification i.\+e. 1st byte P\+R\+E\+A\+M\+B\+LE, Next Four Byte C\+RC, 5th Byte is Size of data, 6th Byte is D\+E\+S\+T\+I\+N\+A\+T\+I\+ON A\+D\+D\+R\+E\+SS 7th Byte is S\+O\+U\+R\+CE A\+D\+D\+R\+E\+SS, and Next Bytes is for the Data getting the length of buffer to initialize the frame.
+
+Dynamically Aloocating the frame size for send buffer
+
+Payload includes Source, Destination and data
+
+passing these valuues to the function to get the C\+RC value for the Payload
+
+making frame Byte by Byte. \mbox{\Hypertarget{_physical_layer_8h_a2f9187d9808dacc6f72362c102844c67}\label{_physical_layer_8h_a2f9187d9808dacc6f72362c102844c67}} 
+\index{PhysicalLayer.h@{PhysicalLayer.h}!myAddress@{myAddress}}
+\index{myAddress@{myAddress}!PhysicalLayer.h@{PhysicalLayer.h}}
+\subsubsection{\texorpdfstring{myAddress()}{myAddress()}}
+{\footnotesize\ttfamily void my\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to get the Source(myaddress) address
+
+to return the source address 

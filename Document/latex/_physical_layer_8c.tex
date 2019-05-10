@@ -1,0 +1,120 @@
+\hypertarget{_physical_layer_8c}{}\section{Source/\+Physical\+Layer/\+Physical\+Layer.c File Reference}
+\label{_physical_layer_8c}\index{Source/PhysicalLayer/PhysicalLayer.c@{Source/PhysicalLayer/PhysicalLayer.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}C\+R\+C.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{_physical_layer_8c_aa54169bf3241b4687f852a559d4a2aaf}{frame\+Initialize}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_physical_layer_8c_a0dfd5c3c5038692ecd75040f70a5631f}{my\+Address}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char $\ast$ \mbox{\hyperlink{_physical_layer_8c_a70e7ad2e1a45c8db5fba9ad4778bd400}{buffer}} = \char`\"{}test\char`\"{}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_physical_layer_8c_acfbbcc00da3c07a6d428a5373721080f}{temp\+Recieve\+Buffer}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_physical_layer_8c_a7173bed7b7e6dd635712e4dfb84a7817}{preamble}} = 0x7E
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{_physical_layer_8c_af2e8f7e8583d0d7c40fe4ea5620f857e}{frame}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{_physical_layer_8c_aa5cbdad2c57e9b3f949e1a4d96382b66}{payload}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_physical_layer_8c_a625f11d8c9a7bedc87fb712fd5ea543f}{destination\+Address}} = 0x02
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_physical_layer_8c_a9253e82cf6a0b64b404fccd0bff8d740}{source\+Address}} = 0x01
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_physical_layer_8c_a1a0a464b8cd667e7e03488bf0df82c9c}{my\+Address}} = 0x01
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_physical_layer_8c_a34d1d7f3f7a649a64afbfa275ca1a53e}{temp\+Preamble}}
+\item 
+int \mbox{\hyperlink{_physical_layer_8c_a57e537a46c7c216a8a39b7652fd128bb}{buff\+Size}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_physical_layer_8c_aa54169bf3241b4687f852a559d4a2aaf}\label{_physical_layer_8c_aa54169bf3241b4687f852a559d4a2aaf}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!frameInitialize@{frameInitialize}}
+\index{frameInitialize@{frameInitialize}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{frameInitialize()}{frameInitialize()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ frame\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Assigning Send buffer according to the specification i.\+e. 1st byte P\+R\+E\+A\+M\+B\+LE, Next Four Byte C\+RC, 5th Byte is Size of data, 6th Byte is D\+E\+S\+T\+I\+N\+A\+T\+I\+ON A\+D\+D\+R\+E\+SS 7th Byte is S\+O\+U\+R\+CE A\+D\+D\+R\+E\+SS, and Next Bytes is for the Data getting the length of buffer to initialize the frame.
+
+Dynamically Aloocating the frame size for send buffer
+
+Payload includes Source, Destination and data
+
+passing these valuues to the function to get the C\+RC value for the Payload
+
+making frame Byte by Byte. \mbox{\Hypertarget{_physical_layer_8c_a0dfd5c3c5038692ecd75040f70a5631f}\label{_physical_layer_8c_a0dfd5c3c5038692ecd75040f70a5631f}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!myAddress@{myAddress}}
+\index{myAddress@{myAddress}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{myAddress()}{myAddress()}}
+{\footnotesize\ttfamily uint8\+\_\+t my\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+to return the source address 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_physical_layer_8c_a70e7ad2e1a45c8db5fba9ad4778bd400}\label{_physical_layer_8c_a70e7ad2e1a45c8db5fba9ad4778bd400}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!buffer@{buffer}}
+\index{buffer@{buffer}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily unsigned char$\ast$ buffer = \char`\"{}test\char`\"{}}
+
+\mbox{\Hypertarget{_physical_layer_8c_a57e537a46c7c216a8a39b7652fd128bb}\label{_physical_layer_8c_a57e537a46c7c216a8a39b7652fd128bb}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!buffSize@{buffSize}}
+\index{buffSize@{buffSize}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{buffSize}{buffSize}}
+{\footnotesize\ttfamily int buff\+Size}
+
+\mbox{\Hypertarget{_physical_layer_8c_a625f11d8c9a7bedc87fb712fd5ea543f}\label{_physical_layer_8c_a625f11d8c9a7bedc87fb712fd5ea543f}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!destinationAddress@{destinationAddress}}
+\index{destinationAddress@{destinationAddress}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{destinationAddress}{destinationAddress}}
+{\footnotesize\ttfamily uint8\+\_\+t destination\+Address = 0x02}
+
+\mbox{\Hypertarget{_physical_layer_8c_af2e8f7e8583d0d7c40fe4ea5620f857e}\label{_physical_layer_8c_af2e8f7e8583d0d7c40fe4ea5620f857e}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!frame@{frame}}
+\index{frame@{frame}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ frame}
+
+\mbox{\Hypertarget{_physical_layer_8c_a1a0a464b8cd667e7e03488bf0df82c9c}\label{_physical_layer_8c_a1a0a464b8cd667e7e03488bf0df82c9c}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!myAddress@{myAddress}}
+\index{myAddress@{myAddress}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{myAddress}{myAddress}}
+{\footnotesize\ttfamily uint8\+\_\+t my\+Address = 0x01}
+
+\mbox{\Hypertarget{_physical_layer_8c_aa5cbdad2c57e9b3f949e1a4d96382b66}\label{_physical_layer_8c_aa5cbdad2c57e9b3f949e1a4d96382b66}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!payload@{payload}}
+\index{payload@{payload}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{payload}{payload}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ payload}
+
+\mbox{\Hypertarget{_physical_layer_8c_a7173bed7b7e6dd635712e4dfb84a7817}\label{_physical_layer_8c_a7173bed7b7e6dd635712e4dfb84a7817}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!preamble@{preamble}}
+\index{preamble@{preamble}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{preamble}{preamble}}
+{\footnotesize\ttfamily uint8\+\_\+t preamble = 0x7E}
+
+\mbox{\Hypertarget{_physical_layer_8c_a9253e82cf6a0b64b404fccd0bff8d740}\label{_physical_layer_8c_a9253e82cf6a0b64b404fccd0bff8d740}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!sourceAddress@{sourceAddress}}
+\index{sourceAddress@{sourceAddress}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{sourceAddress}{sourceAddress}}
+{\footnotesize\ttfamily uint8\+\_\+t source\+Address = 0x01}
+
+\mbox{\Hypertarget{_physical_layer_8c_a34d1d7f3f7a649a64afbfa275ca1a53e}\label{_physical_layer_8c_a34d1d7f3f7a649a64afbfa275ca1a53e}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!tempPreamble@{tempPreamble}}
+\index{tempPreamble@{tempPreamble}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{tempPreamble}{tempPreamble}}
+{\footnotesize\ttfamily uint8\+\_\+t temp\+Preamble}
+
+\mbox{\Hypertarget{_physical_layer_8c_acfbbcc00da3c07a6d428a5373721080f}\label{_physical_layer_8c_acfbbcc00da3c07a6d428a5373721080f}} 
+\index{PhysicalLayer.c@{PhysicalLayer.c}!tempRecieveBuffer@{tempRecieveBuffer}}
+\index{tempRecieveBuffer@{tempRecieveBuffer}!PhysicalLayer.c@{PhysicalLayer.c}}
+\subsubsection{\texorpdfstring{tempRecieveBuffer}{tempRecieveBuffer}}
+{\footnotesize\ttfamily uint8\+\_\+t temp\+Recieve\+Buffer}
+

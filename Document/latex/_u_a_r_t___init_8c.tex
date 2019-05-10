@@ -1,0 +1,74 @@
+\hypertarget{_u_a_r_t___init_8c}{}\section{Source/\+U\+A\+R\+T\+\_\+\+Init.c File Reference}
+\label{_u_a_r_t___init_8c}\index{Source/UART\_Init.c@{Source/UART\_Init.c}}
+{\ttfamily \#include $<$util/setbaud.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___init_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+PU}}~12000000\+UL
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___init_8c_a62634036639f88eece6fbf226b45f84b}{B\+A\+UD}}~9600
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___init_8c_a734bbab06e1a9fd2e5522db0221ff6e3}{B\+A\+U\+D\+R\+A\+TE}}~((\mbox{\hyperlink{_u_a_r_t___init_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+PU}})/(\mbox{\hyperlink{_u_a_r_t___init_8c_a62634036639f88eece6fbf226b45f84b}{B\+A\+UD}}$\ast$16\+U\+L)-\/1)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_u_a_r_t___init_8c_a0c0ca72359ddf28dcd15900dfba19343}{uart\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___init_8c_a875bc837de5b7ef7457096adbdcff653}{uart\+\_\+putchar}} (char c)
+\item 
+char \mbox{\hyperlink{_u_a_r_t___init_8c_a00dbbc6e035bfd12196ec47a99f8e1fe}{uart\+\_\+getchar}} (void)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___init_8c_a75a62dc336c40ff85cd0e7e0e97a5721}{uart\+\_\+put\+String}} (char $\ast$string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_u_a_r_t___init_8c_a62634036639f88eece6fbf226b45f84b}\label{_u_a_r_t___init_8c_a62634036639f88eece6fbf226b45f84b}} 
+\index{UART\_Init.c@{UART\_Init.c}!BAUD@{BAUD}}
+\index{BAUD@{BAUD}!UART\_Init.c@{UART\_Init.c}}
+\subsubsection{\texorpdfstring{BAUD}{BAUD}}
+{\footnotesize\ttfamily \#define B\+A\+UD~9600}
+
+\mbox{\Hypertarget{_u_a_r_t___init_8c_a734bbab06e1a9fd2e5522db0221ff6e3}\label{_u_a_r_t___init_8c_a734bbab06e1a9fd2e5522db0221ff6e3}} 
+\index{UART\_Init.c@{UART\_Init.c}!BAUDRATE@{BAUDRATE}}
+\index{BAUDRATE@{BAUDRATE}!UART\_Init.c@{UART\_Init.c}}
+\subsubsection{\texorpdfstring{BAUDRATE}{BAUDRATE}}
+{\footnotesize\ttfamily \#define B\+A\+U\+D\+R\+A\+TE~((\mbox{\hyperlink{_u_a_r_t___init_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+PU}})/(\mbox{\hyperlink{_u_a_r_t___init_8c_a62634036639f88eece6fbf226b45f84b}{B\+A\+UD}}$\ast$16\+U\+L)-\/1)}
+
+\mbox{\Hypertarget{_u_a_r_t___init_8c_a43bafb28b29491ec7f871319b5a3b2f8}\label{_u_a_r_t___init_8c_a43bafb28b29491ec7f871319b5a3b2f8}} 
+\index{UART\_Init.c@{UART\_Init.c}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!UART\_Init.c@{UART\_Init.c}}
+\subsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \#define F\+\_\+\+C\+PU~12000000\+UL}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_u_a_r_t___init_8c_a00dbbc6e035bfd12196ec47a99f8e1fe}\label{_u_a_r_t___init_8c_a00dbbc6e035bfd12196ec47a99f8e1fe}} 
+\index{UART\_Init.c@{UART\_Init.c}!uart\_getchar@{uart\_getchar}}
+\index{uart\_getchar@{uart\_getchar}!UART\_Init.c@{UART\_Init.c}}
+\subsubsection{\texorpdfstring{uart\_getchar()}{uart\_getchar()}}
+{\footnotesize\ttfamily char uart\+\_\+getchar (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+function to get the character to M\+I\+N\+I\+C\+OM Wait until data exists. \mbox{\Hypertarget{_u_a_r_t___init_8c_a0c0ca72359ddf28dcd15900dfba19343}\label{_u_a_r_t___init_8c_a0c0ca72359ddf28dcd15900dfba19343}} 
+\index{UART\_Init.c@{UART\_Init.c}!uart\_init@{uart\_init}}
+\index{uart\_init@{uart\_init}!UART\_Init.c@{UART\_Init.c}}
+\subsubsection{\texorpdfstring{uart\_init()}{uart\_init()}}
+{\footnotesize\ttfamily void uart\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+U\+A\+RT Configuration, Source from Apple\+Sini website mentioned in the Portal 8-\/bit data
+
+Enable RX and TX \mbox{\Hypertarget{_u_a_r_t___init_8c_a875bc837de5b7ef7457096adbdcff653}\label{_u_a_r_t___init_8c_a875bc837de5b7ef7457096adbdcff653}} 
+\index{UART\_Init.c@{UART\_Init.c}!uart\_putchar@{uart\_putchar}}
+\index{uart\_putchar@{uart\_putchar}!UART\_Init.c@{UART\_Init.c}}
+\subsubsection{\texorpdfstring{uart\_putchar()}{uart\_putchar()}}
+{\footnotesize\ttfamily void uart\+\_\+putchar (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+function to put the character to M\+I\+N\+I\+C\+OM Wait until data register empty. \mbox{\Hypertarget{_u_a_r_t___init_8c_a75a62dc336c40ff85cd0e7e0e97a5721}\label{_u_a_r_t___init_8c_a75a62dc336c40ff85cd0e7e0e97a5721}} 
+\index{UART\_Init.c@{UART\_Init.c}!uart\_putString@{uart\_putString}}
+\index{uart\_putString@{uart\_putString}!UART\_Init.c@{UART\_Init.c}}
+\subsubsection{\texorpdfstring{uart\_putString()}{uart\_putString()}}
+{\footnotesize\ttfamily void uart\+\_\+put\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{string }\end{DoxyParamCaption})}
+
+custom function to get the character from user and put it in a Char Array named as string 
